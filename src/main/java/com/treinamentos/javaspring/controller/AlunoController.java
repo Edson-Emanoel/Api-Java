@@ -8,6 +8,7 @@ import com.treinamentos.javaspring.repostiory.AlunoRepository;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,10 +36,15 @@ public class AlunoController {
         return alunoRepository.findAll();
     }
     
-    @CrossOrigin("*")
     @GetMapping("/aluno/{id}")
     public Optional<Aluno> listarUm(@PathVariable Long id) {
         return alunoRepository.findById(id);
     }
+    
+    @DeleteMapping("/remover/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id) {
+        alunoRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }""
 
 }
