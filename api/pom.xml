@@ -14,7 +14,7 @@
 	<name>javaspring</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>2	</java.version>
+		<java.version>21</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

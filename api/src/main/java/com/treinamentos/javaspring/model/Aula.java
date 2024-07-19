@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity(name = "aulas")
-public class Aulas {
+public class Aula {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +21,5 @@ public class Aulas {
     private Integer duracao;
 
     private String status;
+
 }

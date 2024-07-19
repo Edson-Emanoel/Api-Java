@@ -2,8 +2,8 @@ package com.treinamentos.javaspring.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import com.treinamentos.javaspring.model.Aulas;
-import com.treinamentos.javaspring.repostiory.AulasRepository;
+import com.treinamentos.javaspring.model.Aula;
+import com.treinamentos.javaspring.repostiory.AulaRepository;
 
 import java.util.Optional;
 
@@ -11,53 +11,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-
-
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/api/aulas")
-public class AulasController {
-    
+@RequestMapping("/api/aula")
+public class AulaController {
     @Autowired
-    private AulasRepository aulasRepository;
+    private AulaRepository aulaRepository;
 
     @CrossOrigin("*")
     @PostMapping("/cadastrar")
-    public Aulas cadastrar(@RequestBody Aulas obj) {
-        return aulasRepository.save(obj);
+    public Aula cadastrar(@RequestBody Aula obj) {
+        return aulaRepository.save(obj);
     }
 
     @CrossOrigin("*")
-    @GetMapping("/")
-    public Iterable<Aulas> listarTodos() {
-        return aulasRepository.findAll();
+    @GetMapping("/todos")
+    public Iterable<Aula> listar() {
+        return aulaRepository.findAll();
     }
 
     @CrossOrigin("*")
-    @GetMapping("/{id}")
-    public Optional<Aulas> listarUm(@PathVariable Long id) {
-        return aulasRepository.findById(id);
+    @GetMapping("/aula/{id}")
+    public Optional<Aula> listarUm(@PathVariable Long id) {
+        return aulaRepository.findById(id);
     }
-    
+
     @CrossOrigin("*")
     @DeleteMapping("/remover/{id}")
     public ResponseEntity<Void> remover(@PathVariable Long id) {
-        aulasRepository.deleteById(id);
+        aulaRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
+    
     @CrossOrigin("*")
     @PutMapping("/alterar/{id}")
-    public Aulas atualizar(@RequestBody Aulas obj) {
+    public Aula atualizar(@RequestBody Aula obj) {
         if (obj.getId() != null) {
-            return aulasRepository.save(obj);    
+            return aulaRepository.save(obj);    
         }   return obj;
     }
-
 }
