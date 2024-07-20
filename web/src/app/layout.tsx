@@ -15,8 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="dark">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR" suppressHydrationWarning={true} className="dark">
+    <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
+    </head>
+      
+      <body className={inter.className} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }
