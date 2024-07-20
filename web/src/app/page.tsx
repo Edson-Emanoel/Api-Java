@@ -9,11 +9,43 @@ import { IconClock, IconVideo } from "@tabler/icons-react";
 import Estatistica from "@/components/shared/Estatistica";
 import Duracao from "@/components/data/utils/Duracao";
 import useAulas from "@/components/data/hook/useAulas";
-import { useState } from "react";
 import Cadastrar from "./cadastrar/page";
+import axios from "axios";
+import { useState } from "react";
 
 export default function Home() {
   const { aulas, duracaoTotal, filtrarAulas } = useAulas()
+
+  const [nome, setNome] = useState("")
+  const [curso, setCurso] = useState("")
+  const [duracao, setDuracao] = useState("")
+  const [status, setStatus] = useState("")
+
+  const Inserir = (e: any) => {
+    e.preventDefault()
+
+    console.log('Recebendo valores \n')
+    console.log(nome + ' ' + curso, + ' ' + duracao + ' ' + status)
+   
+    /** */
+      const url = "http://localhost:8080/api/aula/cadastrar"
+
+      axios.post(url, {
+        nome,
+        curso,
+        duracao,
+        status
+      })
+      .then( () => {
+          alert("Aula Cadastrada com sucesso")
+          setNome(''), setCurso(''), setDuracao(''), setStatus('')
+        }
+      )
+      .catch( (error) => {
+        console.log('erro: ' + error)
+      })
+     
+  }
 
   return (
     <div className="flex flex-col gap-10 p-10 h-screen">
@@ -56,10 +88,6 @@ export default function Home() {
             </div>
             <div className="modal-body">
               <Cadastrar />
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-primary">Inserir</button>
-              <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>

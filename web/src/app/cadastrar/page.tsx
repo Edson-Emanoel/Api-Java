@@ -43,35 +43,35 @@ export default function Cadastrar() {
       <div>
         <form className="flex flex-col items-center justify-center gap-3">
           <input
-            className="bg-zinc-900 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
+            className="bg-zinc-600 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
             type="text"
             placeholder="Aula"
             value={nome}
             onChange={ e => setNome(e.target.value)}
           />
           <input
-            className="bg-zinc-900 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
+            className="bg-zinc-600 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
             type="text"
             placeholder="Nome do Curso"
             value={curso}
             onChange={ e => setCurso(e.target.value)}
           />
           <input
-            className="bg-zinc-900 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
+            className="bg-zinc-600 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
             type="number"
             placeholder="Duração do Vídeo"
             value={duracao}
             onChange={ e => setDuracao(e.target.value)}
           />
           <select value={status} onChange={ e => setStatus( e.target.value ) } 
-              className="bg-zinc-900 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
+              className="bg-zinc-600 mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
           >
             <option value="">Selecione</option>
             <option value="rascunho">Rascunho</option>
             <option value="publicada">Publicada</option>
             <option value="desativada">Desativada</option>
           </select>
-          <button onClick={Inserir} className="bg-green-500 mr-3 px-4 py-2 rounded-md font-medium" >Cadastrar Aula</button>
+          <button onClick={Inserir} data-bs-dismiss="modal" className="bg-green-500 mr-3 px-4 py-2 rounded-md font-medium" >Cadastrar Aula</button>
         </form>
       </div>
       
