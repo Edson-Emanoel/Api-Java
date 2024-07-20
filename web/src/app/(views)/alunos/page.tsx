@@ -42,7 +42,7 @@ export default function Aluno(){
 
     return(
         <div className="w-screen h-screen bg-black text-white flex flex-col items-center">
-            <div>
+            <div className="flex flex-col gap-5">
                 <h1 className="mt-5 mb-4">Fórmulario de Alunos</h1>
                 <form onSubmit={Inserir}>
                     <input
@@ -55,7 +55,7 @@ export default function Aluno(){
 
                     <input
                         type="text"
-                        className="bg-zinc-900 text-white mr-3 px-4 py-2 rounded-md font-medium outline-nonew-96"
+                        className="bg-zinc-900 text-white mr-3 px-4 py-2 rounded-md font-medium outline-none w-96"
                         placeholder="Serie"
                         value={serie}
                         onChange={(e) => setSerie(e.target.value)}
@@ -73,10 +73,8 @@ export default function Aluno(){
                         Cadastrar
                     </button>
                 </form>
-            </div>
 
-            <div className="w-screen flex justify-center">
-                <table className="w-96 table">
+                <table className="table table-dark w-40">
                     <thead className="bg-zinc-800">
                         <tr>
                             <th>ID</th>
