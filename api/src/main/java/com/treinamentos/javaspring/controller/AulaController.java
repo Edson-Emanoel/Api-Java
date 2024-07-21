@@ -51,7 +51,7 @@ public class AulaController {
     }
     
     @CrossOrigin("*")
-    @PutMapping("/alterar/{id}")
+    @PutMapping("/alterar")    
     public Aula atualizar(@RequestBody Aula obj) {
         if (obj.getId() != null) {
             return aulaRepository.save(obj);    

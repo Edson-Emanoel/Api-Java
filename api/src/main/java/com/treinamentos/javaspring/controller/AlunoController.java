@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,7 +54,7 @@ public class AlunoController {
 
     @CrossOrigin("*")
     @PutMapping("/alterar/{id}")
-    public Aluno atualizar(@RequestBody Aluno obj) {
+    public Aluno atualizar(@RequestParam Aluno obj) {
         if (obj.getId() != null) {
             return alunoRepository.save(obj);    
         }   return obj;
