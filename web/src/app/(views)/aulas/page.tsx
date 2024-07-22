@@ -146,8 +146,8 @@ export default function Aula() {
                                     <td>{aula.duracao}</td>
                                     <td>{aula.status}</td>
                                     <td className="flex justify-center">
-                                        <IconEdit size={35} className="bg-yellow-500 text-white mr-3 px-2 py-1 rounded-md outline-none" onClick={() => CarregarCampos(aula.id, aula.nome, aula.curso, aula.duracao, aula.status)}>Edit</IconEdit>
-                                        <IconTrash size={35} className="bg-red-500 text-white px-2 py-1 rounded-md outline-none" onClick={() => Remover(aula.id)}>Delet</IconTrash>
+                                        <IconEdit size={35} className="bg-yellow-500 text-white mr-3 px-2 py-1 rounded-md outline-none" onClick={() => CarregarCampos(aula.id, aula.nome, aula.curso, aula.duracao, aula.status)}></IconEdit>
+                                        <IconTrash size={35} className="bg-red-500 text-white px-2 py-1 rounded-md outline-none" onClick={() => Remover(aula.id)}></IconTrash>
                                     </td>
                                 </tr>
                             ))

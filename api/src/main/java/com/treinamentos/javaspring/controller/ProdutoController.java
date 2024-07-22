@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.treinamentos.javaspring.model.Endereco;
-import com.treinamentos.javaspring.repostiory.EnderecoRepository;
+import com.treinamentos.javaspring.model.Produto;
+import com.treinamentos.javaspring.repostiory.ProdutoRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,42 +19,42 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/endereco")
-public class EnderecoController {
+@RequestMapping("/api/produto")
+public class ProdutoController {
     
     @Autowired
-    private EnderecoRepository enderecoRepository;
+    private ProdutoRepository produtoRepository;
 
     @CrossOrigin("*")
     @PostMapping("/cadastrar")
-    public Endereco cadastrar(@RequestBody Endereco obj) {
-        return enderecoRepository.save(obj);
+    public Produto cadastrar(@RequestBody Produto obj) {
+        return produtoRepository.save(obj);
     }
-    
+
     @CrossOrigin("*")
     @GetMapping("/todos")
-    public Iterable<Endereco> listar() {
-        return enderecoRepository.findAll();
+    public Iterable<Produto> listar() {
+        return produtoRepository.findAll();
     }
     
     @CrossOrigin("*")
     @GetMapping("/{id}")
-    public Optional<Endereco> listarUm(@PathVariable Long id) {
-        return enderecoRepository.findById(id);
-    }
-    
-    @CrossOrigin("*")
-    @DeleteMapping("/remover/{id}")
-    public ResponseEntity<Void> remover(@PathVariable Long id){
-        enderecoRepository.deleteById(id);
-        return ResponseEntity.ok().build();
+    public Optional<Produto> listarUm(@PathVariable Long id) {
+        return produtoRepository.findById(id);
     }
 
     @CrossOrigin("*")
+    @DeleteMapping("/remover/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id){
+        produtoRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+    
+    @CrossOrigin("*")
     @PutMapping("/alterar")
-    public Endereco atualizar(@RequestBody Endereco obj) {
+    public Produto atualizar(@RequestBody Produto obj) {
         if (obj.getId() != null) {
-            return enderecoRepository.save(obj);    
-        }   return obj;
+            return produtoRepository.save(obj);
+        } return obj;
     }
 }
