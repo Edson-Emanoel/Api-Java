@@ -10,6 +10,7 @@ interface Endereco {
     logradouro: string;
     bairro: string;
     complemento: string;
+    dataCadastro: string;
 }
 
 export default function Endereco() {
@@ -140,6 +141,7 @@ export default function Endereco() {
                             <th>Logradouro</th>
                             <th>Bairro</th>
                             <th>Complemento</th>
+                            <th>Data Cadastro</th>
                             <th className="text-center">Ações</th>
                         </tr>
                     </thead>
@@ -152,6 +154,7 @@ export default function Endereco() {
                                     <td>{endereco.logradouro}</td>
                                     <td>{endereco.bairro}</td>
                                     <td>{endereco.complemento}</td>
+                                    <td>{endereco.dataCadastro}</td>
                                     <td className="flex justify-center">
                                         <IconEdit size={35} className="bg-yellow-500 text-white mr-3 px-2 py-1 rounded-md outline-none" onClick={() => CarregarCampos(endereco.id, endereco.rua, endereco.logradouro, endereco.bairro, endereco.complemento )}></IconEdit>
                                         <IconTrash size={35} className="bg-red-500 text-white mr-3 px-2 py-1 rounded-md outline-none" onClick={() => Remover(endereco.id)}></IconTrash>

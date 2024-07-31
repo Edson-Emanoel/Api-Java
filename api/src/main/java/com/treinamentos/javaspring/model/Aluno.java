@@ -1,13 +1,16 @@
 package com.treinamentos.javaspring.model;
 
-import java.sql.Date;
+import java.time.Instant;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.Data;
 
 @Data
@@ -24,6 +27,11 @@ public class Aluno {
 
     private String sexo;
 
-    @Temporal(TemporalType.DATE)
-    private Date dataCadastro = new Date(0);
+    @CreationTimestamp
+    @DateTimeFormat(iso = ISO.DATE)
+    private Instant dataCadastro;
+
+    @UpdateTimestamp
+    @DateTimeFormat(iso = ISO.DATE)
+    private Instant dataAtualizacao;
 }

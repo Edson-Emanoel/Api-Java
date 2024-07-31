@@ -81,6 +81,7 @@ export default function Aluno(){
                             <th>Nome</th>
                             <th>Serie</th>
                             <th>Sexo</th>
+                            <th>Data Cadastro</th>
                         </tr>
                     </thead>
                     <tbody className="bg-zinc-950">
@@ -90,6 +91,7 @@ export default function Aluno(){
                                 <td>{item.nome}</td>
                                 <td>{item.serie}</td>
                                 <td>{item.sexo}</td>
+                                <td>{item.dataCadastro}</td>
                             </tr>
                         ))}
                     </tbody>

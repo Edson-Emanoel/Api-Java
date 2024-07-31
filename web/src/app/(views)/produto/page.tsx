@@ -11,7 +11,7 @@ export default function Produto() {
     const [id, setId] = useState<Number>()
     const [nome, setNome] = useState("")
     const [quantidade, setQuantidade] = useState("")
-    const [preco, setPreco] = useState<Number>()
+    const [preco, setPreco] = useState<Number>(0)
 
     const [classBtnInserir, setClassBtnInserir] = useState('')
     const [classBtnAlterar, setClassBtnAlterar] = useState('hidden')
@@ -21,6 +21,7 @@ export default function Produto() {
         nome: string;
         quantidade: string;
         preco: number;
+        dataCadastro: number;
     }
 
     useEffect(() => {
@@ -115,6 +116,7 @@ export default function Produto() {
                             <th>Produto</th>
                             <th>Quantidade</th>
                             <th>Preço</th>
+                            <th>Data Cadastro</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -126,6 +128,7 @@ export default function Produto() {
                                     <td>{produto.nome}</td>
                                     <td>{produto.quantidade}</td>
                                     <td>{produto.preco}</td>
+                                    <td>{produto.dataCadastro}</td>
                                     <td className="flex justify-center">
                                         <IconEdit size={35}  onClick={() => CarregarCampos(produto.id, produto.nome, produto.quantidade, produto.preco)} className="bg-yellow-500 text-white mr-3 px-2 py-1 rounded-md outline-none" />
                                         <IconTrash size={35} onClick={() => Remover(produto.id)} className="bg-red-500 text-white mr-3 px-2 py-1 rounded-md outline-none"  />
