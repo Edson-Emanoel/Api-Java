@@ -62,6 +62,8 @@
 @layer base {
   * {
     @apply border-border;
+    margin: 0;
+    paddmin: 0;
   }
   body {
     @apply bg-background text-foreground;
