@@ -1,9 +1,7 @@
 #### Projeto NextJS Frontend e Java BackEnd
 
 * Java versão 21 JDK
-
-* Mysql --> 
-
+* Xampp Mysql
 * NextJS versão
 
 #### Entidades
